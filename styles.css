@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Variables */
 :root {
     --container-padding: 15px;
     --main-bg-color: #171623;
@@ -11,11 +12,16 @@
     --green-color: rgb(32, 180, 67);
     --main-header-color: #ffffff;
     --border-radius: 10px;
-    --main-font-color: #878787;
+    --main-font-color: #b3b3b3;
+    --heading-font: 'Raleway', sans-serif;
+    --heading-font-weight: 200;
+    --body-font: 'Open Sans', sans-serif;
 }
 
 body {
+    background-color: var(--main-bg-color);
     color: var(--main-font-color);
+    font-family: var(--body-font);
 }
 
 h1,
@@ -23,6 +29,17 @@ h2,
 h3,
 h4,
 h5 {
+    color: var(--main-header-color);
+    font-family: var(--heading-font);
+    font-weight: var(--heading-font-weight);
+}
+
+button,
+button:hover,
+button:focus {
+    background: none;
+    border: none;
+    outline: none;
     color: var(--main-header-color);
 }
 
@@ -38,7 +55,7 @@ h5 {
     padding: var(--container-padding);
     border-radius: var(--border-radius);
     background-color: var(--green-color);
-    color: #878787;
+    color: #f3f3f3;
 }
 
 
@@ -50,13 +67,12 @@ h5 {
 }
 
 .header {
-    margin: 20px;
+    margin: 20px 15px 15px 15px;
     padding: var(--container-padding);
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: repeat(auto-fill, minmax(max(250px, 50%), 1fr));
     border-radius: var(--border-radius);
-
     background-color: var(--secondary-bg-color)
 }
 
@@ -67,17 +83,64 @@ h5 {
     align-items: center;
 }
 
-.alert-section,
-.user-actions {
-    justify-self: end;
+.alert-button,
+.search-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.alert-section img {
+    margin: 5px 15px 5px 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--main-bg-color),
+                0 0 0 4px var(--green-color);
+}
+
+#alert-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    fill: #ffffff;
+}
+
+.alert-button:after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 6px;
+    height: 6px;
+    border: 2px solid var(--main-bg-color);
+    border-radius: 50%;
+    background-color: red;
 }
 
 .user-actions {
-    width: 100%;
+    justify-content: start;
+}
+
+.user-actions button {
+    width: 4rem;
+    margin: 10px 5px 5px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--green-color);
+}
+
+#search-icon {
+    fill: currentColor;
+    width: 20px;
+    height: 20px;
 }
 
 #search-bar {
     flex: 1;
+    margin: 0 0 0 10px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.3rem;
 }
 
 .content {
