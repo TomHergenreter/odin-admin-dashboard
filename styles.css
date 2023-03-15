@@ -15,12 +15,15 @@ img {
     --secondary-bg-color: #1d1e2e;
     --green-gradient: linear-gradient(45deg, #a8e063, #56ab2f); 
     --green-color: #56ab2f;
+    --blue-color: #1a75f5;
+    --pink-color: #fa4181;
     --main-header-color: #ffffff;
-    --border-radius: 10px;
+    --border-radius: 5px;
     --main-font-color: #b3b3b3;
     --heading-font: 'Raleway', sans-serif;
     --heading-font-weight: 200;
     --body-font: 'Open Sans', sans-serif;
+    --card-box-shadow: 0px 2px 10px rgb(20, 17, 27);
 }
 
 body {
@@ -56,13 +59,12 @@ button:focus {
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    height: 100vh;
-    background-color: var(--main-bg-color)
+    background-color: var(--main-bg-color);
 }
 
 /* Sidebar Styles */
 .sidebar {
-    margin: 20px 0 20px 15px;
+    /* margin: 20px; */
     padding: var(--container-padding);
     border-radius: var(--border-radius);
     background: var(--green-gradient);
@@ -70,7 +72,11 @@ button:focus {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
+    position: sticky; 
+    top: 0;
+    height: 100vh; 
+    box-shadow: var(--card-box-shadow);
+}   
 
 .logo-container {
     display: flex;
@@ -105,7 +111,8 @@ button:focus {
     height: 80px;
     margin: 5px 10px 5px 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 2px #f3f3f3;
+    box-shadow: 0 0 0 3px var(--green-color),
+                0 0 0 6px #f3f3f3;
 }
 
 .user-info h2 {
@@ -133,7 +140,8 @@ nav ul li {
 .content-section {
     grid-column: 2 / span 4;
     display: grid;
-    grid-template-rows: 1fr 6fr;
+    /* grid-template-rows: 1fr 6fr; */
+    grid-auto-rows: max-content;
     background-color: var(--main-bg-color)
 }
 
@@ -146,8 +154,7 @@ nav ul li {
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    min-height: 0;
-    min-width: 0;
+    box-shadow: var(--card-box-shadow);
 }
 
 .search,
@@ -230,6 +237,7 @@ nav ul li {
 .content {
     display: grid;
     grid-template-columns: 3fr 1fr;
+    grid-auto-rows: max-content;
 }
 
 .content h3 {
@@ -242,7 +250,7 @@ nav ul li {
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
     grid-template-rows: 20px;
-    
+    grid-auto-rows: max-content;
     background-color: var(--main-bg-color)
 }
 
@@ -252,9 +260,34 @@ nav ul li {
 }
 
 .project {
+    display: flex;
+    flex-direction: column;
     padding: var(--container-padding);
     border-radius: var(--border-radius);
     background-color: var(--secondary-bg-color);
+    box-shadow: var(--card-box-shadow); 
+}
+
+.project h4 {
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--main-font-color);
+}
+
+.project p {
+    font-size: .9rem;
+}
+
+.green-priority {
+    border-left: 5px solid var(--green-color);
+}
+
+.blue-priority {
+    border-left: 5px solid var(--blue-color);
+}
+
+.pink-priority{
+    border-left: 5px solid var(--pink-color);
 }
 
 /* Content Sidebar Styles */
@@ -279,6 +312,7 @@ nav ul li {
     margin-bottom: 20px;
     border-radius: var(--border-radius);
     background-color: var(--secondary-bg-color);
+    box-shadow: var(--card-box-shadow);
 }
 
 .trending {
@@ -287,6 +321,12 @@ nav ul li {
     padding: var(--container-padding);
     border-radius: var(--border-radius);
     background-color: var(--secondary-bg-color);
+    box-shadow: var(--card-box-shadow);
+}
+
+.announcement p,
+.trending p {
+    font-size: .8rem;
 }
 
 /* Small Screen Styles */
