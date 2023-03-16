@@ -444,10 +444,14 @@ a.action-icons:hover {
         align-self: flex-end;
     }
 
+    .projects h3 {
+        grid-column: 1 / -1;
+    }
+
 }
 
 /* Mobile styles */
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 705px) {
 
     .container {
         display: flex;
