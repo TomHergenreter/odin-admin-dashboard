@@ -153,11 +153,17 @@ nav {
 }
 
 nav ul li {
-    padding: 3px 0 3px 6px;
+    padding: 3px 6px;
+    transition: all .25s ease;
 }
 
 nav ul li .iconify {
     padding-right: 4px;
+}
+
+nav ul li:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
 }
 
 /* Content Grid Container */
@@ -270,7 +276,8 @@ nav ul li .iconify {
 }
 
 .content h3 {
-    padding-left: var(--container-padding);
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .projects {
@@ -278,13 +285,13 @@ nav ul li .iconify {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-    grid-template-rows: 20px;
+    grid-template-rows: 29.5px;
     grid-auto-rows: max-content;
     background-color: var(--main-bg-color);
 }
 
 .projects h3 {
-    grid-column: 1 / -1;
+    grid-column-end: span 2;
     color: #ffffff;
 }
 
@@ -309,9 +316,11 @@ nav ul li .iconify {
 }
 
 .project-action {
+    height: 100%;
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .action-icons {
@@ -322,6 +331,10 @@ nav ul li .iconify {
 a.action-icons,
 a:visited.action-icons {
     color: #f3f3f3;
+}
+
+a.action-icons:hover {
+    color: var(--accent-color)
 }
 
 /* Content Sidebar Styles */
