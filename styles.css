@@ -12,10 +12,28 @@ img {
 :root {
     --container-padding: 15px;
     --main-bg-color: #171623;
-    --secondary-bg-color: #1d1e2e;
-    --green-gradient: linear-gradient(45deg, #a8e063, #56ab2f); 
+    --secondary-bg-color: hsl(236, 23%, 15%);
+    --tertiary-bg-color: hsl(234, 26%, 24%);
+    --blue-gradient: linear-gradient(
+          45deg,
+          hsl(233.33, 23.68%, 14.9%) 0%,
+          hsl(233.36, 23.74%, 15.02%) 8.1%,
+          hsl(233.42, 23.88%, 15.34%) 15.5%,
+          hsl(233.51, 24.08%, 15.84%) 22.5%,
+          hsl(233.62, 24.33%, 16.48%) 29%,
+          hsl(233.73, 24.6%, 17.24%) 35.3%,
+          hsl(233.85, 24.87%, 18.08%) 41.2%,
+          hsl(233.95, 25.13%, 18.96%) 47.1%,
+          hsl(234.05, 25.37%, 19.86%) 52.9%,
+          hsl(234.13, 25.59%, 20.75%) 58.8%,
+          hsl(234.2, 25.77%, 21.58%) 64.7%,
+          hsl(234.26, 25.93%, 22.34%) 71%,
+          hsl(234.31, 26.06%, 22.98%) 77.5%,
+          hsl(234.35, 26.15%, 23.48%) 84.5%,
+          hsl(234.37, 26.21%, 23.81%) 91.9%,
+          hsl(234.38, 26.23%, 23.92%) 100%);
     --green-color: #56ab2f;
-    --blue-color: #1a75f5;
+    --accent-color: #1a75f5;
     --pink-color: #fa4181;
     --main-header-color: #ffffff;
     --border-radius: 5px;
@@ -67,7 +85,7 @@ button:focus {
     /* margin: 20px; */
     padding: var(--container-padding);
     border-radius: var(--border-radius);
-    background: var(--green-gradient);
+    background: var(--blue-gradient);
     color: #f3f3f3;
     display: flex;
     flex-direction: column;
@@ -104,6 +122,7 @@ button:focus {
 
 .eyebrow-text {
     font-size: .8rem;
+    margin-top: 10px;
 }
 
 .user-info img {
@@ -111,7 +130,7 @@ button:focus {
     height: 80px;
     margin: 5px 10px 5px 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 3px var(--green-color),
+    box-shadow: 0 0 0 3px var(--tertiary-bg-color),
                 0 0 0 6px #f3f3f3;
 }
 
@@ -129,7 +148,8 @@ nav {
 
 .main-nav,
 .settings-nav {
-    border-left: 2px solid #f3f3f3;
+    border-left: 2px solid var(--accent-color);
+    margin-bottom: 20px;
 }
 
 nav ul li {
@@ -151,10 +171,10 @@ nav ul li .iconify {
 
 /* Header Styles */
 .header {
-    margin: 20px 15px 15px 15px;
+    margin: 10px 15px 0px 15px;
     padding: var(--container-padding);
     border-radius: var(--border-radius);
-    background-color: var(--secondary-bg-color);
+    background: var(--blue-gradient);
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
@@ -183,7 +203,7 @@ nav ul li .iconify {
     margin: 5px 10px 5px 4px;
     border-radius: 50%;
     box-shadow: 0 0 0 2px var(--main-bg-color),
-                0 0 0 4px var(--green-color);
+                0 0 0 4px #f3f3f3;
 }
 
 #alert-icon {
@@ -216,25 +236,29 @@ nav ul li .iconify {
     min-width: 4.6rem;
     padding: 5px;
     border-radius: 5px;
-    background: var(--green-gradient);
+    background: var(--accent-color);
 }
 
 .search {
     flex: 1;
     align-self: flex-end;
     justify-content: flex-end;
+    position: relative;
 }
 
 #search-icon {
-    fill: currentColor;
+    fill: var(--secondary-bg-color);
     width: 20px;
     height: 20px;
+    position: absolute;
+    bottom: 2px;
+    right: 8px;
 }
 
 #search-bar {
     border: none;
     border-radius: var(--border-radius);
-    padding: 3px;
+    padding: 3px 10px;
     font-size: 1rem;
 }
 
@@ -256,7 +280,7 @@ nav ul li .iconify {
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
     grid-template-rows: 20px;
     grid-auto-rows: max-content;
-    background-color: var(--main-bg-color)
+    background-color: var(--main-bg-color);
 }
 
 .projects h3 {
@@ -269,14 +293,15 @@ nav ul li .iconify {
     flex-direction: column;
     padding: var(--container-padding);
     border-radius: var(--border-radius);
-    background-color: var(--secondary-bg-color);
+    background: var(--blue-gradient);
     box-shadow: var(--card-box-shadow); 
+    border-left:5px solid var(--accent-color);
 }
 
 .project h4 {
-    padding-bottom: 3px;
+    padding-bottom: 6px;
     margin-bottom: 10px;
-    border-bottom: 1px solid var(--main-font-color);
+    border-bottom: 1px solid var(--main-header-color);
 }
 
 .project p {
@@ -299,18 +324,6 @@ a:visited.action-icons {
     color: #f3f3f3;
 }
 
-.green-priority {
-    border-left: 5px solid var(--green-color);
-}
-
-.blue-priority {
-    border-left: 5px solid var(--blue-color);
-}
-
-.pink-priority{
-    border-left: 5px solid var(--pink-color);
-}
-
 /* Content Sidebar Styles */
 .content-sidebar {
     padding: var(--container-padding);
@@ -323,17 +336,28 @@ a:visited.action-icons {
     margin-bottom: 18px;
 }
 
+.content-sidebar h5 {
+    padding-bottom: 1px;
+}
+
 .announcements {
     display: flex;
     flex-direction: column;
-}
-
-.announcement {
+    gap: 14px;
     padding: var(--container-padding);
     margin-bottom: 20px;
     border-radius: var(--border-radius);
-    background-color: var(--secondary-bg-color);
+    background: var(--blue-gradient);
     box-shadow: var(--card-box-shadow);
+}
+
+.announcement {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--main-header-color);
+}
+
+.announcement:last-child {
+    border-bottom: none;
 }
 
 .trending {
@@ -341,8 +365,33 @@ a:visited.action-icons {
     flex-direction: column;
     padding: var(--container-padding);
     border-radius: var(--border-radius);
-    background-color: var(--secondary-bg-color);
+    background: var(--blue-gradient);
     box-shadow: var(--card-box-shadow);
+}
+
+.trend {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.trend img {
+    grid-row-end: span 2;
+    margin: 5px 10px 5px 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--main-bg-color),
+                0 0 0 4px #f3f3f3;
+    justify-self: end;
+}
+
+.trend .handle {
+    font-size: .8rem;
+    font-weight: bold;
+    align-self: end;
+}
+
+.trend .description {
+    font-size: .6rem;
 }
 
 .announcement p,
@@ -353,9 +402,6 @@ a:visited.action-icons {
 /* Small Screen Styles */
 @media screen and (max-width: 900px) {
     
-
-    
-   
     .header {
         margin-top: 0px;
         flex-direction: column;
@@ -370,6 +416,7 @@ a:visited.action-icons {
         align-items: center;
         justify-content: space-around;
         align-self: center;
+        margin-top: 5px;
     }
 
     .search {
@@ -384,7 +431,6 @@ a:visited.action-icons {
         align-self: flex-end;
     }
 
-    
 }
 
 /* Mobile styles */
@@ -401,21 +447,44 @@ a:visited.action-icons {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        z-index: 1;
     }
 
-    .sidebar nav ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .logo-container{
+        position: relative;
+        margin-bottom: 20px;
     }
 
-    .logo-container,
-    .eyebrow-text {
+    .logo-container::after {
+        position: absolute;
+        content: "Menu";
+        bottom: -25px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .eyebrow-text,
+    .user-info {
         display: none;
     }
 
     .user-info {
         flex-direction: row;
+    }
+
+    .action-center {
+        width: 100%;
+    }
+
+    .user-actions {
+        width: 100%;
+    }
+
+    .header button {
+        flex: 1;
+        width: 100%;
     }
 
     .content {
@@ -425,4 +494,12 @@ a:visited.action-icons {
     .content-sidebar {
         padding: var(--container-padding);
     }
+
+    .trending {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    
 }
