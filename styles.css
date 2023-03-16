@@ -80,7 +80,7 @@ button:focus {
 
 .logo-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -134,6 +134,10 @@ nav {
 
 nav ul li {
     padding: 3px 0 3px 6px;
+}
+
+nav ul li .iconify {
+    padding-right: 4px;
 }
 
 /* Content Grid Container */
@@ -230,7 +234,8 @@ nav ul li {
 #search-bar {
     border: none;
     border-radius: var(--border-radius);
-    font-size: 1.3rem;
+    padding: 3px;
+    font-size: 1rem;
 }
 
 /* Content Styles */
@@ -270,12 +275,28 @@ nav ul li {
 
 .project h4 {
     padding-bottom: 3px;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     border-bottom: 1px solid var(--main-font-color);
 }
 
 .project p {
     font-size: .9rem;
+}
+
+.project-action {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-icons {
+    font-size: 1.2rem;
+    padding: 0px 3px;
+}
+
+a.action-icons,
+a:visited.action-icons {
+    color: #f3f3f3;
 }
 
 .green-priority {
@@ -331,7 +352,12 @@ nav ul li {
 
 /* Small Screen Styles */
 @media screen and (max-width: 900px) {
+    
+
+    
+   
     .header {
+        margin-top: 0px;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
@@ -356,5 +382,47 @@ nav ul li {
         width: 100%;
         margin-top: 10px;
         align-self: flex-end;
+    }
+
+    
+}
+
+/* Mobile styles */
+@media screen and (max-width: 670px) {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-container,
+    .eyebrow-text {
+        display: none;
+    }
+
+    .user-info {
+        flex-direction: row;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .content-sidebar {
+        padding: var(--container-padding);
     }
 }
